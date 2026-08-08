@@ -82,3 +82,17 @@ numeros * 3
 print(numeros + letras)
 4 in numeros
 
+
+#tuplas, valores fijos
+
+Tupla = (20, "lorenzo", 26, 1.2, [10,20,30],20)
+
+
+Tupla.index(26)  # Busca la primera aparición de valor en la tupla y devuelve su índice.                                                   |
+
+Tupla.count(20)  #Cuenta cuántas veces aparece valor en la tupla.
+
+#tupla también se pueden sumar
+
+
+
