@@ -41,7 +41,7 @@ def crear_historial_banco(nombre):
     return historial 
 #testeo
 historial = crear_historial_banco("transacciones.csv")
-print(historial["20.415.740-5"])
+#print(historial["20.415.740-5"])
 
 # FUNCION 2: LISTAR CLIENTES DEL BANCO
 # En base al historial creado en el paso anterior, deberás extraer los nombres
@@ -53,7 +53,8 @@ def listar_clientes(historial):
         clientes.append(info["nombre"])
     return clientes
 
-listar_clientes(historial)
+#testeo
+#listar_clientes(historial)
 
 
 # FUNCION 3: REGISTRAR CLIENTE EN EL BANCO
@@ -73,8 +74,8 @@ def registrar_cliente(historial, rut, nombre):
         }
         print(f"registrado el cliente nombre: {nombre}, rut {rut}")
 #testeo
-registrar_cliente(historial, "20.415.740-5", "Nicolás Contreras Herrera")
-registrar_cliente(historial, "20.557.560-k", "Lorenzo Vives")
+#registrar_cliente(historial, "20.415.740-5", "Nicolás Contreras Herrera")
+#registrar_cliente(historial, "20.557.560-k", "Lorenzo Vives")
 
 # FUNCION 4: ENTREGAR HISTORIAL DE TRANSACCIONES DE UN CLIENTE
 # Dado el rut de un cliente, debes retornar el historial de transacciones del
@@ -90,8 +91,8 @@ def entregar_historial_cliente(historial, rut):
     print(f"transacciones: {cartola['transacciones']['transaccion']}") #dos [] ya que quiero perdir la lista
     print(f"monto: {cartola['transacciones']['monto']}")
 
-#test
-entregar_historial_cliente(historial,"20.557.560-k")
+#testeo
+#entregar_historial_cliente(historial,"20.557.560-k")
 
 # FUNCION 5: AGREGAR O QUITAR DEPOSITO AL USUARIO
 # Dado un rut, un monto y una transacción que puede ser un deposito o un retiro
@@ -137,8 +138,9 @@ def nueva_transaccion(historial, rut, monto, transaccion="deposito"):
         historial[rut]["transacciones"]["monto"].append(monto)  
         print("depósito fue realizado correctamente")
 
-nueva_transaccion(historial, "20.557.560-k",10000, transaccion ="deposito")
-nueva_transaccion(historial, "20.557.560-k",40000, transaccion ="retiro")
+#testeo
+#nueva_transaccion(historial, "20.557.560-k",10000, transaccion ="deposito")
+#nueva_transaccion(historial, "20.557.560-k",40000, transaccion ="retiro")
 
 # FUNCION 6: CREAR MENÚ DE INTERACCIÓN
 # Debes crear un menú con el que se pueda interactuar con tu programa. Para esto debes:
@@ -149,13 +151,54 @@ nueva_transaccion(historial, "20.557.560-k",40000, transaccion ="retiro")
 # - El menú debe funcionar de manera infinita (es decir, volver a pedir opciones luego de ejecutar
 #   una acción) hasta que se seleccione la opción de terminar el programa. En ese caso, la función debe finalizar.
 def programa_interactivo(historial):
-    pass
+    opciones = {
+        "1": "listado de clientes",
+        "2": "registrar nuevo cliente",
+        "3": "historial del cliente",
+        "4": "nueva transacción",
+        "-1": "salir del programa" #sacado de la ayudantía
+    }
+    while True:
+        print("\nBienvenido a la base de datos bancaria. ¿Cuál es la acción que deseas realizar?")
+        for clave, texto in opciones.items():
+            print(f"[{clave}]{texto}")
+        
+        opcion = input("Selecciona una opción: ").strip()
+        if opcion == "1": 
+            print(listar_clientes(historial_banco))
+                    
+        elif opcion == "2":
+            rut = input("Ingrese el rut del cliente: ").strip()
+            nombre = input("Ingrese el nombre completo del cliente: ").strip()
+            registrar_cliente(historial_banco, rut, nombre)
+
+        elif opcion == "3":
+            rut = input("Ingrese el rut del cliente: ").strip()
+            entregar_historial_cliente(historial_banco, rut)
+
+        elif opcion == "4":
+            rut = input("Ingrese el rut del cliente: ").strip()
+            monto = input("Ingrese el monto de la operación: ").strip()
+
+            if monto.lstrip("-").isdigit():
+                monto = int(monto) 
+                transaccion = input("Ingrese la transaccion a realizar (deposito/retiro): ").strip()
+                nueva_transaccion(historial_banco, rut, monto, transaccion)
+            else: 
+                print("el monto debe ser un n° entero")
+        
+        elif opcion == "-1":
+            print("Gracias por usar el sistema. ¡Hasta luego!")
+            break
+        else:
+            print("Opción no válida, intenta de nuevo.")
+
 
 
 # ESTA SECCIÓN TE PERMITE PROBAR TU CÓDIGO
 if __name__ == "__main__":
     # CAMBIAR ENTRE TRUE Y FALSE SI DESEAS PROBARLO DE FORMA INTERACTIVA MEDIANTE
-    INTERACTIVO = False
+    INTERACTIVO = True
 
     historial_banco = crear_historial_banco("transacciones.csv")
     # NO MODIFICAR
@@ -183,3 +226,6 @@ if __name__ == "__main__":
             nueva_transaccion(historial_banco, "12.345.678-9", 10000, "retiro")
     else:
         print("Llena primero la función crear_historial_banco antes de probar tu código.")
+
+
+#preguntar al ayudante si es necesario tener el saldo en el menú 
