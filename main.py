@@ -8,7 +8,9 @@ import utilidades
 # Tu trabajo es completarlas según las especificaciones del enunciado.
 # Podrás probar tus funciones modificando la sección final del código y ejecutando
 # este programa mediante el comando "python3 main.py"
+tr = utilidades.cargar_csv("transacciones.csv")
 
+print(tr)
 # FUNCIÓN 1: GENERAR HISTORIAL DEL BANCO
 # A partir de la lista de transacciones sin procesar, debes retornar un diccionario,
 # donde las llaves sean el RUT de la persona y el valor otro diccionario,
@@ -17,30 +19,79 @@ def crear_historial_banco(nombre):
     # NO MODIFICAR
     transacciones_sin_procesar = utilidades.cargar_csv(nombre)
     # AHORA COMPLETA LA FUNCIÓN, BORRANDO EL "pass" Y ESCRIBIENDO LO QUE FALTA.
-    pass
-
+    historial = {}
+    for rut in transacciones_sin_procesar [1:]:
+            listarut = rut.split(",")
+            rut = listarut[0] 
+            nombre = listarut[1]
+            transaccion = listarut[2]
+            monto = listarut[3]
+            if rut in historial: #si existe el rut
+                historial[rut]["transacciones"]["transaccion"].append(transaccion) #lista dentro del dicto pra agregar nuevos datos si es necesario
+                historial[rut]["transacciones"]["monto"].append(monto) #lo mismo
+            else:  #si no
+                historial[rut] = {
+                "rut": rut,
+                "nombre": nombre,
+                "transacciones": {
+                    "transaccion": [transaccion],
+                    "monto": [monto]
+                }
+            }
+    return historial 
+#testeo
+historial = crear_historial_banco("transacciones.csv")
+print(historial["20.415.740-5"])
 
 # FUNCION 2: LISTAR CLIENTES DEL BANCO
 # En base al historial creado en el paso anterior, deberás extraer los nombres
 # de todos los clientes del banco y retornarlos en una lista
+
 def listar_clientes(historial):
-    pass
+    clientes = []
+    for info in historial.values(): #sacado de la ayudantía
+        clientes.append(info["nombre"])
+    return clientes
+
+listar_clientes(historial)
 
 
 # FUNCION 3: REGISTRAR CLIENTE EN EL BANCO
 # Dado un rut y nombre del cliente, registrarlo en el historial.
 # Si el cliente ya existe, debes avisar.
 def registrar_cliente(historial, rut, nombre):
-    pass
-
+    if rut in historial:
+        print("El cliente ya existe en la base")
+    else: 
+        historial[rut] = { #mismo q arriba
+            "rut": rut,
+            "nombre": nombre,
+            "transacciones": {
+                 "transaccion": [],
+                 "monto": []
+             }
+        }
+        print(f"registrado el cliente nombre: {nombre}, rut {rut}")
+#testeo
+registrar_cliente(historial, "20.415.740-5", "Nicolás Contreras Herrera")
+registrar_cliente(historial, "20.557.560-k", "Lorenzo Vives")
 
 # FUNCION 4: ENTREGAR HISTORIAL DE TRANSACCIONES DE UN CLIENTE
 # Dado el rut de un cliente, debes retornar el historial de transacciones del
 # cliente en el formato pedido, junto con un resumen.
 # Además, debes enviar un mensaje especial si el RUT ingresado no es cliente
 def entregar_historial_cliente(historial, rut):
-    pass
+    if rut not in historial: #not in sacado de la ayudantía
+        print("el cliente no está registrado en la base")
+        return
+    cartola = historial[rut]
+    print(f"rut: {cartola['rut']}")
+    print(f"nombre: {cartola['nombre']}")
+    print(f"transacciones: {cartola['transacciones']['transaccion']}") #dos [] ya que quiero perdir la lista
+    print(f"monto: {cartola['transacciones']['monto']}")
 
+#test
+entregar_historial_cliente(historial,"20.557.560-k")
 
 # FUNCION 5: AGREGAR O QUITAR DEPOSITO AL USUARIO
 # Dado un rut, un monto y una transacción que puede ser un deposito o un retiro
@@ -51,8 +102,43 @@ def entregar_historial_cliente(historial, rut):
 # - Si la transacción es un retiro, debes verificar que el usuario tiene suficiente saldo en la cuenta.
 # - En caso de no cumplir alguna de estas reglas, debes avisar cuál fue el problema.
 def nueva_transaccion(historial, rut, monto, transaccion="deposito"):
-    pass
+    if rut not in historial:
+        print(f"el cliente rut: {rut} no existe en la base")
+        return
+    if transaccion not in ("deposito", "retiro"):
+        print(f"operación {transaccion} no permitida")
+        return
+    if not isinstance(monto, int) or isinstance(monto, bool):#isinstance: Return whether an object is an instance of a class or of a subclass thereof.
+        print("el monto no es un n° entero")
+        return                      
+    if monto <= 0:
+        print("el monto debe ser mayor a 0")
+        return
+    saldo = 0 #al final si creé el saldo pq sino era muy enredado calcular
+    transacciones = historial[rut]["transacciones"]["transaccion"]
+    montos = historial[rut]["transacciones"]["monto"]
 
+    for i in range(len(transacciones)):
+        if transacciones[i] == "deposito":
+            saldo += int(montos[i])
+        elif transacciones[i] == "retiro":
+            saldo -= int(montos[i])
+
+    if transaccion == "retiro": #aquí no tengo una col de saldo, es dificil evaluarlo
+        if saldo < monto:
+            print("no hay suficientes fondos para el retiro")
+            return
+        historial[rut]["transacciones"]["transaccion"].append(transaccion) 
+        historial[rut]["transacciones"]["monto"].append(monto) 
+        print("retiro realizado correctamente")
+       
+    else: 
+        historial[rut]["transacciones"]["transaccion"].append(transaccion)
+        historial[rut]["transacciones"]["monto"].append(monto)  
+        print("depósito fue realizado correctamente")
+
+nueva_transaccion(historial, "20.557.560-k",10000, transaccion ="deposito")
+nueva_transaccion(historial, "20.557.560-k",40000, transaccion ="retiro")
 
 # FUNCION 6: CREAR MENÚ DE INTERACCIÓN
 # Debes crear un menú con el que se pueda interactuar con tu programa. Para esto debes:
