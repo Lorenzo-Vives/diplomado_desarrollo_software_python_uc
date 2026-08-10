@@ -8,9 +8,7 @@ import utilidades
 # Tu trabajo es completarlas según las especificaciones del enunciado.
 # Podrás probar tus funciones modificando la sección final del código y ejecutando
 # este programa mediante el comando "python3 main.py"
-tr = utilidades.cargar_csv("transacciones.csv")
 
-print(tr)
 # FUNCIÓN 1: GENERAR HISTORIAL DEL BANCO
 # A partir de la lista de transacciones sin procesar, debes retornar un diccionario,
 # donde las llaves sean el RUT de la persona y el valor otro diccionario,
@@ -70,7 +68,8 @@ def registrar_cliente(historial, rut, nombre):
             "transacciones": {
                  "transaccion": [],
                  "monto": []
-             }
+             },
+                "saldo": 0 #también agrego el saldo aquí para los clientes nvs
         }
         print(f"registrado el cliente nombre: {nombre}, rut {rut}")
 #testeo
@@ -90,9 +89,30 @@ def entregar_historial_cliente(historial, rut):
     print(f"nombre: {cartola['nombre']}")
     print(f"transacciones: {cartola['transacciones']['transaccion']}") #dos [] ya que quiero perdir la lista
     print(f"monto: {cartola['transacciones']['monto']}")
+    print(f"saldo: {cartola['saldo']}")
 
 #testeo
 #entregar_historial_cliente(historial,"20.557.560-k")
+
+
+#calcular saldos. Al final y revisando la pauta, preferí crear esta f(x) para calcular
+# los saldos de todos
+def calcular_saldos(historial):
+    for rut in historial:
+        saldo = 0
+        transacciones = historial[rut]["transacciones"]["transaccion"]
+        montos = historial[rut]["transacciones"]["monto"]
+
+        for i in range(len(transacciones)):
+            if transacciones[i] == "deposito":
+                saldo += int(montos[i])
+            elif transacciones[i] == "retiro":
+                saldo -= int(montos[i])
+
+        historial[rut]["saldo"] = saldo
+
+    return historial
+
 
 # FUNCION 5: AGREGAR O QUITAR DEPOSITO AL USUARIO
 # Dado un rut, un monto y una transacción que puede ser un deposito o un retiro
@@ -115,7 +135,8 @@ def nueva_transaccion(historial, rut, monto, transaccion="deposito"):
     if monto <= 0:
         print("el monto debe ser mayor a 0")
         return
-    saldo = 0 #al final si creé el saldo pq sino era muy enredado calcular
+    saldo = 0 #al final si creé el saldo pq sino era muy enredado calcular #nota2: ahora tengo saldo creado arriba, por loq creo 
+    # esto está demás, pero igual funciona 
     transacciones = historial[rut]["transacciones"]["transaccion"]
     montos = historial[rut]["transacciones"]["monto"]
 
@@ -137,10 +158,16 @@ def nueva_transaccion(historial, rut, monto, transaccion="deposito"):
         historial[rut]["transacciones"]["transaccion"].append(transaccion)
         historial[rut]["transacciones"]["monto"].append(monto)  
         print("depósito fue realizado correctamente")
+    calcular_saldos(historial)
+
+
 
 #testeo
+#calcular_saldos(historial)
 #nueva_transaccion(historial, "20.557.560-k",10000, transaccion ="deposito")
 #nueva_transaccion(historial, "20.557.560-k",40000, transaccion ="retiro")
+#entregar_historial_cliente(historial,"20.557.560-k")
+
 
 # FUNCION 6: CREAR MENÚ DE INTERACCIÓN
 # Debes crear un menú con el que se pueda interactuar con tu programa. Para esto debes:
@@ -201,6 +228,7 @@ if __name__ == "__main__":
     INTERACTIVO = True
 
     historial_banco = crear_historial_banco("transacciones.csv")
+    calcular_saldos(historial_banco)
     # NO MODIFICAR
     if historial_banco:
         if INTERACTIVO:
@@ -228,4 +256,3 @@ if __name__ == "__main__":
         print("Llena primero la función crear_historial_banco antes de probar tu código.")
 
 
-#preguntar al ayudante si es necesario tener el saldo en el menú 
