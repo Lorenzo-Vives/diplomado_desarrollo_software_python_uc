@@ -96,3 +96,58 @@ Tupla.count(20)  #Cuenta cuántas veces aparece valor en la tupla.
 
 
 
+
+
+#------------------------------------------------------------------------------
+# apuntes clase 3
+#------------------------------------------------------------------------------
+
+#librerías
+
+import math #librería math, permite hacer operaciones + complejas
+
+math.cos(math.pi / 4)
+
+math.sqrt(2) / 2
+
+import random #librería random permite meter aleatoriedad
+
+random.random()
+
+random.choice(["manzana", "pera", "naranja", "platano", "melon", "uva"]) #choice agarra un obj random de la lista
+
+import statistics #lib para sacar descriptivos
+
+data = [2.75, 1.50, 1.75, 2.3, 2.15, 0.85]
+
+#media, mediana y varianza
+statistics.mean(data)
+
+statistics.median(data)
+
+statistics.variance(data)
+
+
+from pathlib import Path #lib para working directory y rutas
+
+ruta = Path(".") #creamos ruta
+
+ruta.resolve() #le pedimos la ruta
+
+ruta.exists() #boleando q preugnta si la ruta existe
+
+for elemento in ruta.iterdir(): #permite buscar los elementos de la ruta
+    print(elemento)f
+
+for i in ruta.iterdir():
+    print(i)
+
+import json #convertir a diccionario json
+
+datos = {"nombre": "Valeria", "edad":31}
+
+textos = json.dumps(datos)
+print(textos)
+
+recuperado = json.loads(textos)
+print(recuperado["nombre"])
