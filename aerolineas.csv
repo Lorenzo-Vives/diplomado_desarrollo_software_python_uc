@@ -1,0 +1,114 @@
+airline,country,region,safety_tier_label,annual_passengers_mn,years_operating
+American Airlines,USA,NorthAmerica,Tier 1 (Excellent),3.7,98
+United Airlines,USA,NorthAmerica,Tier 1 (Excellent),155.1,98
+Delta Air Lines,USA,NorthAmerica,Tier 1 (Excellent),10.0,95
+Southwest Airlines,USA,NorthAmerica,Tier 1 (Excellent),30.2,57
+Air Canada,Canada,NorthAmerica,Tier 1 (Excellent),8.4,87
+British Airways,UK,Europe,Tier 1 (Excellent),135.8,50
+Lufthansa,Germany,Europe,Tier 1 (Excellent),2.2,71
+Air France,France,Europe,Tier 1 (Excellent),22.8,91
+KLM,Netherlands,Europe,Tier 1 (Excellent),2.3,105
+Ryanair,Ireland,Europe,Tier 1 (Excellent),4.8,40
+easyJet,UK,Europe,Tier 1 (Excellent),13.7,29
+Wizz Air,Hungary,Europe,Tier 1 (Excellent),23.5,21
+Turkish Airlines,Turkey,Europe,Tier 1 (Excellent),19.4,91
+Swiss International,Switzerland,Europe,Tier 1 (Excellent),4.4,22
+Scandinavian Airlines,Sweden,Europe,Tier 1 (Excellent),52.9,78
+Iberia,Spain,Europe,Tier 1 (Excellent),9.7,97
+Finnair,Finland,Europe,Tier 1 (Excellent),2.3,101
+TAP Air Portugal,Portugal,Europe,Tier 2 (Good),10.2,79
+Alitalia,Italy,Europe,Tier 2 (Good),5.6,78
+LOT Polish Airlines,Poland,Europe,Tier 2 (Good),3.6,95
+Emirates,UAE,MiddleEast,Tier 1 (Excellent),51.4,39
+Qatar Airways,Qatar,MiddleEast,Tier 1 (Excellent),7.0,31
+Etihad Airways,UAE,MiddleEast,Tier 1 (Excellent),10.5,21
+Flydubai,UAE,MiddleEast,Tier 2 (Good),17.7,16
+Air Arabia,UAE,MiddleEast,Tier 2 (Good),13.4,21
+Singapore Airlines,Singapore,AsiaPacific,Tier 1 (Excellent),9.7,77
+Cathay Pacific,HongKong,AsiaPacific,Tier 1 (Excellent),35.9,78
+Qantas,Australia,AsiaPacific,Tier 1 (Excellent),5.0,104
+Japan Airlines,Japan,AsiaPacific,Tier 1 (Excellent),58.3,73
+ANA,Japan,AsiaPacific,Tier 1 (Excellent),1.3,72
+Korean Air,SouthKorea,AsiaPacific,Tier 2 (Good),18.5,55
+Asiana Airlines,SouthKorea,AsiaPacific,Tier 2 (Good),98.5,36
+China Eastern,China,AsiaPacific,Tier 2 (Good),1.5,36
+China Southern,China,AsiaPacific,Tier 2 (Good),93.1,36
+Air China,China,AsiaPacific,Tier 2 (Good),21.5,36
+IndiGo,India,SouthAsia,Tier 2 (Good),27.9,18
+Air India,India,SouthAsia,Tier 2 (Good),3.5,92
+SpiceJet,India,SouthAsia,Tier 2 (Good),32.3,20
+Thai Airways,Thailand,SoutheastAsia,Tier 2 (Good),7.9,64
+Garuda Indonesia,Indonesia,SoutheastAsia,Tier 2 (Good),9.2,75
+Philippine Airlines,Philippines,SoutheastAsia,Tier 2 (Good),8.2,83
+Vietnam Airlines,Vietnam,SoutheastAsia,Tier 2 (Good),20.2,68
+AirAsia,Malaysia,SoutheastAsia,Tier 2 (Good),26.5,31
+Lion Air,Indonesia,SoutheastAsia,Tier 3 (Moderate),124.3,25
+Batik Air,Indonesia,SoutheastAsia,Tier 2 (Good),7.5,11
+Ethiopian Airlines,Ethiopia,Africa,Tier 2 (Good),64.2,79
+Kenya Airways,Kenya,Africa,Tier 2 (Good),9.8,47
+South African Airways,SouthAfrica,Africa,Tier 2 (Good),12.9,90
+EgyptAir,Egypt,Africa,Tier 2 (Good),8.7,92
+Royal Air Maroc,Morocco,Africa,Tier 2 (Good),52.3,67
+TAAG Angola Airlines,Angola,Africa,Tier 3 (Moderate),15.3,86
+Air Algérie,Algeria,Africa,Tier 3 (Moderate),48.3,71
+Cameroon Airlines,Cameroon,Africa,Tier 3 (Moderate),6.8,53
+ASKY Airlines,Togo,Africa,Tier 2 (Good),29.8,14
+Aeroflot,Russia,CIS,Tier 2 (Good),7.0,101
+S7 Airlines,Russia,CIS,Tier 2 (Good),3.8,32
+Ural Airlines,Russia,CIS,Tier 3 (Moderate),27.3,81
+Air Astana,Kazakhstan,CIS,Tier 2 (Good),23.2,23
+Azal,Azerbaijan,CIS,Tier 3 (Moderate),5.1,32
+LATAM Airlines,Chile,LatinAmerica,Tier 2 (Good),13.7,95
+Avianca,Colombia,LatinAmerica,Tier 2 (Good),106.1,105
+GOL Airlines,Brazil,LatinAmerica,Tier 2 (Good),8.3,23
+Aeromexico,Mexico,LatinAmerica,Tier 2 (Good),5.8,90
+Cubana,Cuba,LatinAmerica,Tier 3 (Moderate),5.9,95
+Conviasa,Venezuela,LatinAmerica,Tier 3 (Moderate),8.0,20
+TAME,Ecuador,LatinAmerica,Tier 3 (Moderate),27.4,62
+LAN Peru,Peru,LatinAmerica,Tier 2 (Good),14.2,25
+Frontier Airlines,USA,NorthAmerica,Tier 1 (Excellent),13.2,30
+Spirit Airlines,USA,NorthAmerica,Tier 1 (Excellent),7.2,41
+Allegiant Air,USA,NorthAmerica,Tier 1 (Excellent),37.2,27
+WestJet,Canada,NorthAmerica,Tier 1 (Excellent),103.1,28
+Vueling,Spain,Europe,Tier 1 (Excellent),15.2,20
+Transavia,Netherlands,Europe,Tier 1 (Excellent),5.6,59
+Eurowings,Germany,Europe,Tier 1 (Excellent),17.9,31
+Pegasus Airlines,Turkey,Europe,Tier 2 (Good),22.9,35
+Sunwing Airlines,Canada,NorthAmerica,Tier 1 (Excellent),3.8,19
+Cebu Pacific,Philippines,SoutheastAsia,Tier 2 (Good),46.3,36
+Vietjet,Vietnam,SoutheastAsia,Tier 2 (Good),4.6,13
+Citilink,Indonesia,SoutheastAsia,Tier 2 (Good),18.4,23
+TUI Airways,UK,Europe,Tier 1 (Excellent),6.3,62
+Condor,Germany,Europe,Tier 2 (Good),25.2,69
+Thomas Cook Airlines,UK,Europe,Tier 2 (Good),3.2,59
+Pan American World Airways,USA,NorthAmerica,Tier 2 (Good),12.3,97
+TWA,USA,NorthAmerica,Tier 2 (Good),6.5,99
+Eastern Air Lines,USA,NorthAmerica,Tier 2 (Good),0.8,98
+Swissair,Switzerland,Europe,Tier 1 (Excellent),10.4,93
+Sabena,Belgium,Europe,Tier 2 (Good),2.1,101
+Olympic Airways,Greece,Europe,Tier 2 (Good),12.5,67
+Mexicana de Aviación,Mexico,LatinAmerica,Tier 2 (Good),16.3,103
+Varig,Brazil,LatinAmerica,Tier 2 (Good),32.0,97
+Ansett Australia,Australia,AsiaPacific,Tier 1 (Excellent),13.3,88
+Malév,Hungary,Europe,Tier 2 (Good),19.7,78
+Spanair,Spain,Europe,Tier 2 (Good),5.7,36
+Air Berlin,Germany,Europe,Tier 1 (Excellent),22.7,46
+Monarch Airlines,UK,Europe,Tier 1 (Excellent),23.1,57
+Aviaco,Spain,Europe,Tier 2 (Good),29.1,76
+Tarom,Romania,Europe,Tier 3 (Moderate),66.7,70
+Croatia Airlines,Croatia,Europe,Tier 2 (Good),31.5,34
+Air Transat,Canada,NorthAmerica,Tier 1 (Excellent),9.0,38
+Sky Express,Greece,Europe,Tier 2 (Good),23.9,19
+Flybe,UK,Europe,Tier 1 (Excellent),9.4,45
+Adria Airways,Slovenia,Europe,Tier 2 (Good),5.4,63
+Aer Lingus,Ireland,Europe,Tier 1 (Excellent),12.1,88
+Rossiya Airlines,Russia,CIS,Tier 3 (Moderate),61.2,90
+Ural Airlines,Russia,CIS,Tier 3 (Moderate),19.6,81
+Air Koryo,NorthKorea,AsiaPacific,Tier 4 (Poor),3.2,74
+MIAT Mongolian,Mongolia,AsiaPacific,Tier 3 (Moderate),32.2,68
+Pakistan International,Pakistan,SouthAsia,Tier 3 (Moderate),14.6,69
+SriLankan Airlines,SriLanka,SouthAsia,Tier 2 (Good),6.9,45
+Biman Bangladesh,Bangladesh,SouthAsia,Tier 3 (Moderate),33.4,52
+Nepal Airlines,Nepal,SouthAsia,Tier 4 (Poor),76.1,66
+Yeti Airlines,Nepal,SouthAsia,Tier 3 (Moderate),0.7,26
+Saurya Airlines,Nepal,SouthAsia,Tier 3 (Moderate),46.7,9
